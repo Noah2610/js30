@@ -11,6 +11,11 @@ fetch(endpoint)
 	.then(data => cities.push(...data));  // '...' --> spread into array
 
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+
 function findMatches(targetWord, cities) {
 
 	return cities.filter(place =>  {
@@ -38,7 +43,7 @@ function displayMatches() {
 			return `
 				<li>
 					<span class="name">${cityName}, ${stateName}</span>
-					<span class="population">${place.population}</span>
+					<span class="population">${numberWithCommas(place.population)}</span>
 				</li>
 			`;
 		}).join("");
