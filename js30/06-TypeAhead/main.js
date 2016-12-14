@@ -29,7 +29,6 @@ function findMatches(targetWord, cities) {
 
 function displayMatches() {
 	if (this.value == "") {
-			console.log("TEST");
 		suggestions.innerHTML = "<li>Filter for a city</li><li>or a state</li>";
 	} else {
 
