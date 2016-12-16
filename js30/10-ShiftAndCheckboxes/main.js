@@ -1,22 +1,34 @@
 
 const chboxes = document.querySelectorAll('input[type="checkbox"]');
 
-let last;
+let lastChecked;
 
 function checkFunc(event) {
-	console.dir(this);
 
-	console.log(chboxes.find(checkbox => {
-		if (checkbox == this) {
-			return true;
+	for (var count = 0; count < chboxes.length; count++) {
+		if (chboxes[count] == this) {
+
+			if (!event.shiftKey) {
+				lastChecked = {index: count, obj: this};
+			}
+
+			else if (event.shiftKey && lastChecked) {
+				if (count > lastChecked.index) {  // lastChecked is above
+					var loopStart = count - 1;
+					var loopIncr = -1;
+				} else if (count < lastChecked.index) {  // lastChecked is below
+					var loopStart = count + 1;
+					var loopIncr = 1;
+				} else return;
+					var loopEnd = lastChecked.index;
+
+				for (var subCount = loopStart; subCount < loopEnd || subCount > loopEnd; subCount += loopIncr) {
+					// chboxes[subCount].checked = true;  // always set checkboxes to true
+					// chboxes[subCount].checked = !chboxes[subCount].checked;  // invert checkboxes values (true -> false; false ->)
+					chboxes[subCount].checked = this.checked;  // set checkboxes values to selected state (recommended)
+				}
+			}
 		}
-	}));
-
-
-	last = this;
-
-	if (event.shiftKey) {
-
 	}
 }
 
