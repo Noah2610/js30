@@ -67,11 +67,13 @@ function checkFunc(event) {
 				}
 
 			}
+			if (!event.shiftKey) {
 				lastChecked = index;
+			}
 		}
 
 	});
-	
+
 }
 
 
