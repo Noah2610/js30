@@ -45,6 +45,8 @@ function scrub(event) {
 }
 
 function toggleFullscreen() {
+	// unfinished
+
 		console.log("fullscreen");
 	if (player.requestFullscreen) {
 		player.requestFullscreen();
