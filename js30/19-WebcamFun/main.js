@@ -33,6 +33,7 @@ function paintToCanvas() {
 		let pixels = ctx.getImageData(0,0, width,height);
 		// edit pixels
 		pixels = rgbFiler(pixels);
+		pixels = greenScreen(pixels);
 		// pixels = rgbSplit(pixels);
 		ctx.globalAlpha = document.querySelector(".afterImg input").value;
 		// pixels = greenScreen(pixels);
