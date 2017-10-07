@@ -14,10 +14,16 @@ words.appendChild(p);
 
 recognition.addEventListener("result", event => {
 
+	// console.log(event.results);
+	// console.log(result);
+
 	const transcript = Array.from(event.results)
 		.map(result => result[0])
 		.map(result => result.transcript)
 		.join("");
+
+		// console.log("test");
+		// console.log(transcript);
 
 	p.textContent = transcript;
 
@@ -39,3 +45,10 @@ recognition.addEventListener("result", event => {
 recognition.addEventListener("end", recognition.start);
 
 recognition.start();
+
+
+// console logs
+/* words.addEventListener("change", () => {
+	let p = document.querySelectorAll("p");
+	console.log(p[p.length - 1]);
+}); */
